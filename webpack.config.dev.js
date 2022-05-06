@@ -12,13 +12,13 @@ module.exports = {
     },
     hot: true,
     historyApiFallback: true,
-    compress: true
+    compress: true,
   },
   resolve: {
     alias: {
-      '@': path.resolve('src')
+      '@': path.resolve('src'),
     },
-    extensions: ['.ts', '.tsx', '.js', '.json']
+    extensions: ['.ts', '.tsx', '.js', '.json'],
   },
   module: {
     rules: [
@@ -27,37 +27,37 @@ module.exports = {
         use: {
           loader: require.resolve('babel-loader'),
         },
-        exclude: [/node_modules/]
+        exclude: [/node_modules/],
       },
       {
         test: /\.(css|less)$/,
         use: [
           {
-            loader: 'style-loader'
+            loader: 'style-loader',
           },
           {
             loader: 'css-loader',
             options: {
               importLoaders: 1,
-            }
-          }
-        ]
+            },
+          },
+        ],
       },
       {
         test: /\.(png|jpg|jpeg|gif|svg)$/,
-        loader: 'file-loader'
+        loader: 'file-loader',
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/,
-        loader: 'file-loader'
-      }
-    ]
+        loader: 'file-loader',
+      },
+    ],
   },
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      template: 'src/index.html'
+      template: 'src/index.html',
     }),
     new ProgressPlugin(),
-  ]
+  ],
 };
